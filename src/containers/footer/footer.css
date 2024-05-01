@@ -110,6 +110,10 @@ button {
   display: none;
 }
 
+.h6__responsive {
+  display: none;
+}
+
 @media screen and (max-width: 850px) {
   .footer {
     padding-top: 4rem;
@@ -189,5 +193,52 @@ button {
 
   .footer__img img {
     width: 120px;
+    margin-bottom: 1rem;
   }
+
+  .footer__contact-us {
+    display: flex;
+    flex-direction: row;
+    /* gap: 1rem; */
+    align-items: center;
+    align-self: flex-start;
+    margin-bottom: 0.75rem;
+  }
+
+  .h6__responsive {
+    display: flex; 
+  }
+
+  .footer__contact-us a {
+    margin-left: 0.75rem;
+  }
+
+  form {
+    width: auto;
+  }
+
+  input {
+    width: auto;
+    padding: 1rem 1rem;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    width: auto;
+  }
+
+  .icons {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .icons .MuiSvgIcon-root {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  .footer__finisher{
+    margin-top: 1rem;
+  }
+  
 }

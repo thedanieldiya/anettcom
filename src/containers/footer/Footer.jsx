@@ -12,7 +12,7 @@ const Footer = () => {
       </div>
       <div className="footer__contact">
         <div className="footer__contact-us">
-          <h6>Send us an email</h6>
+          <h6>Send us an email</h6><h6 className='h6__responsive'>:</h6>
           <a href="mailto:info@anettcom.com">info@anettcom.com</a>
         </div>
         <div className="footer__contact-us__newsletter">

@@ -17,6 +17,7 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   height: 100%;
+  width: auto;
   background-color: rgba(43, 43, 43, 0.54);
   border-radius: 25px;
 }
@@ -44,7 +45,23 @@
 }
 
 .industry__title {
+  align-self: flex-end;
   color: white;
-  margin-top: 100%;
+  margin-bottom: 1rem;
   margin-left: 1rem;
+}
+
+@media screen and (max-width: 850px) {
+  .icon__circle {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .icon__circle img{
+    width: 1.4rem;
+  }
+
+  .industry {
+    height: 25vh;
+  }
 }

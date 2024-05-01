@@ -116,5 +116,12 @@
 }
 
 @media screen and (max-width: 550px) {
+  .testimonial__text h4 {
+    margin-left: 2rem;
+    font-size: 1.6rem;
+  }
 
+  .testimonial__card-testimony p {
+    line-height: 1.3rem;
+  }
 }

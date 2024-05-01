@@ -24,3 +24,14 @@
     gap: 1.5rem;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .clients__container img {
+    height: 2rem;
+  }
+
+  .clients__container {
+    gap: 1rem;
+  }
+}
+

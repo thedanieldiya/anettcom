@@ -7,7 +7,8 @@ const Cta = ({action}) => {
     <div>
       <div className="cta__action">
         <div className="cta__action-text">
-          <h5>{action}</h5>
+          <h5 className='h5'>{action}</h5>
+          <h6 className='h6'>{action}</h6>
           <img src={Arrow} alt="" />
         </div>
         <hr />
