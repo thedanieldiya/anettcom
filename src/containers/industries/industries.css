@@ -1,0 +1,43 @@
+.industries {
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+}
+
+h2 {
+  margin: 0;
+}
+
+.industries__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  flex: 2;
+}
+
+.industries__text {
+  flex: 1;
+}
+
+@media screen and (max-width: 850px) {
+  .industries {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  .industries__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex: 1;
+  }
+
+  .industries__text {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+
+}
