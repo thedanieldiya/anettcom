@@ -8,7 +8,7 @@ const Testimonial = () => {
       <div className="testimonial__text">
         <p className="testimonial__text-quotes gradient__text">""</p>
         <h4>Our vision is to be your technology solutions provider of choice.</h4>
-        <div className="testimonial__text-cta">
+        <div className="testimonial__text-cta cta__btn">
           <p className=' gradient__text'>GET STARTED HERE </p>
           <img src={Arrow} alt="" />
         </div>

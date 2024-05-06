@@ -28,6 +28,18 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.h5 {
+  transition: transform 0.8s ease;
+}
+
+.hero__text-container__top:hover {
+  cursor: pointer;
+}
+
+.hero__text-container__top:hover .h5{
+  transform: translateX(10px);
+}
+
 .hero__text-container__top-img {
   width: 80px;
   object-fit: contain;

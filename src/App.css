@@ -58,6 +58,19 @@ h2 {
   line-height: 1.2;
 }
 
+.cta__btn img {
+  transition: transform 0.8s ease;
+}
+
+.cta__btn:hover {
+  cursor: pointer;
+}
+
+.cta__btn:hover img {
+  /* transform: translate(10px); */
+  transform: rotate(-15deg);
+}
+
 h3 {
   font-size: 1.953rem;
   letter-spacing: -0.09rem;

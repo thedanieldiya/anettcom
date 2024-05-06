@@ -9,7 +9,7 @@ const ServiceTag = ({ title, subtitle, cta }) => {
       <h6 className='h6'>{title}</h6>
       <div className="serviceTag__body">
         <p>{subtitle}</p>
-        <div className="serviceTag__body-cta gradient__text">
+        <div className="serviceTag__body-cta gradient__text cta__btn">
           <p>{cta}</p>
           <img src={Arrow} alt="" className='arrow'/>
           <img src={Arrow2} alt="" className='arrow2'/>

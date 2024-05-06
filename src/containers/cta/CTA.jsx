@@ -6,7 +6,7 @@ const Cta = ({action}) => {
   return (
     <div>
       <div className="cta__action">
-        <div className="cta__action-text">
+        <div className="cta__action-text  cta__btn">
           <h5 className='h5'>{action}</h5>
           <h6 className='h6'>{action}</h6>
           <img src={Arrow} alt="" />
