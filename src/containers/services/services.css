@@ -35,6 +35,10 @@
   color: var(--gray-700);
 }
 
+.service__card:hover  hr {
+  display: none;
+}
+
 @media screen and (max-width: 850px) {
   .services__header{
     flex-direction: column;

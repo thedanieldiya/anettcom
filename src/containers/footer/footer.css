@@ -25,13 +25,13 @@
   border-bottom: 2px solid white;
 }
 
-form {
+.form {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
 }
 
-input {
+.form__input {
   padding: 1.5rem 3rem;
   outline: none;
   border: none;
@@ -119,14 +119,14 @@ button {
     padding-top: 4rem;
   }
 
-  form {
+  .form {
     display: flex;
     justify-content: center;
     width: 70vw;
     gap: 0;
   }
   
-  input {
+  .form__input {
     padding: 1rem 2rem;
     font-size: 12px;
     margin: 0;
@@ -213,11 +213,11 @@ button {
     margin-left: 0.75rem;
   }
 
-  form {
+  .form {
     width: auto;
   }
 
-  input {
+  .form__input {
     width: auto;
     padding: 1rem 1rem;
   }

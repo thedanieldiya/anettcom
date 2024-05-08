@@ -17,8 +17,8 @@ const Footer = () => {
         </div>
         <div className="footer__contact-us__newsletter">
           <h6>Subscribe to our newsletter</h6>
-          <form action="">
-            <input type="email" placeholder='Enter your email address' />
+          <form action="" className='form'>
+            <input className='form__input' type="email" placeholder='Enter your email address' />
             <button type="submit" className='gradient__bg'>Subcribe Now</button>
           </form>
         </div>
