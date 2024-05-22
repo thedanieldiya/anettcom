@@ -15,6 +15,10 @@ body {
 :root {
   --font-1: "Raleway", sans-serif;
   --font-2: "Space Grotesk", sans-serif;
+  --black-500: #080808;
+  --black-400: #393939;
+  --black-300: #5a5a5a;
+  --black-50: #e6e6e6;
   --gray-900: #212121;
   --gray-800: #424242;
   --gray-700: #616161;

@@ -23,3 +23,7 @@ export { default as AyoMartin} from './ayodeleMartin.jpg';
 export { default as Arrow} from './arrowSomeUp.svg';
 export { default as Arrow2} from './arrowSomeUpWhite.svg';
 export { default as CTAImg} from './cta.jpg';
+export { default as ServiceHero } from './servicehero.png';
+export { default as Jet } from './jet.png';
+export { default as Bank } from './bank.png';
+export { default as CoinCog } from './coinCog.png';

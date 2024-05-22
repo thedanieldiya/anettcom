@@ -3,6 +3,7 @@ import './header.css'
 import { AnettcomDark } from '../../assets'
 import { Link, Outlet } from 'react-router-dom'
 import { CloseRounded, MenuRounded, PhoneRounded } from '@mui/icons-material'
+import Footer from '../footer/Footer'
 
 
 const Header = () => {
@@ -51,6 +52,7 @@ const Header = () => {
         </div>
       </div>
       <Outlet />
+      <Footer />
     </>
   )
 }

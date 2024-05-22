@@ -1,0 +1,76 @@
+.services {
+  background-color: white;
+}
+
+.services__hero h2 {
+  max-width: 53%;
+}
+
+.services__hero-imgCon{
+  height: 50%;
+  position: relative;
+
+}
+
+.services__hero-img {
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  position: relative;
+}
+
+.section {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.section img {
+  height: 3rem;
+  object-fit: contain;
+}
+
+.section h3 {
+  margin: 0;
+}
+
+.sections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.serviceCard {
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 1px 9px 20px 0 rgba(81, 81, 81, 0.1);
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.serviceCard h5 {
+  font-family: var(--font-2);
+  margin: 2rem 0;
+}
+
+.serviceCard p {
+  line-height: 1.5rem;
+  margin: 1rem 0;
+}
+
+.serviceCard img {
+  width: 1.5rem;
+  object-fit: contain;
+  margin-top: 1rem;
+  transition: transform 0.8s ease;
+}
+
+.serviceCard img:hover{
+  transform: rotate(-15deg);
+  cursor: pointer;
+}

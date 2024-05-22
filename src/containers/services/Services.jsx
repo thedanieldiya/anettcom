@@ -6,7 +6,7 @@ import { ServiceTag } from '../../components'
 const Dev = () => {
   return (
     <> 
-      <ServiceTag title='WEB DESIGN & DEVELOPMENT' subtitle='With expertise in cutting-edge technologies, we deliver robust web development solutions that cater to diverse business needs.' cta='Hire us' />
+      <ServiceTag title='WEB DESIGN & DEVELOPMENT' subtitle='With expertise in cutting-edge technologies, we deliver robust web development solutions that cater to diverse business needs.' cta='Hire us' route='/services/web_development'/>
       <hr></hr>
       <ServiceTag title='UI/UX' subtitle='Our skilled designers create visually appealing and intuitive user interfaces, focusing on enhancing user experiences.' cta='Hire us' />
       <hr></hr>
@@ -23,7 +23,7 @@ const Software = () => {
     <>
       <ServiceTag title='SOFTWARE DEVELOPMENT' subtitle='We provide services on software customization, integration of modules and more to help stay ahead of competitors.' cta='Hire us' />
       <hr></hr>
-      <ServiceTag title='SCHOOL MANAGEMENT' subtitle='Our leading school management solutions are tailored to easily manage class schedules, and handle grading all in one place.' cta='Book a Demo' />
+      <ServiceTag title='SCHOOL MANAGEMENT' subtitle='Our leading school management solutions are tailored to easily manage class schedules, and handle grading all in one place.' cta='Book a Demo' route='ednify' />
       <hr></hr>
       <ServiceTag title='PAVICOOP' subtitle='A fully integrated cloud cooperative management system that delivers the conventional cloud based banking solutions.' cta='Book a Demo' />
       <hr></hr>

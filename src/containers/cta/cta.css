@@ -24,11 +24,12 @@
   width: 100%;
 }
 
-.cta__action-text {
+.cta__action-text a{
   display: flex;
   margin-top: 2rem;
   margin-bottom: 1.375rem;
   justify-content: space-between;
+  color: var(--black-500);
 }
 
 .cta__container-text__cta {

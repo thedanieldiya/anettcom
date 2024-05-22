@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './hero.css'
-import { PokeArrow, HeroImg, Anettcom } from '../../assets'
-import { ArrowForwardRounded, ChevronLeftRounded, ChevronRightRounded, CloseRounded } from '@mui/icons-material';
+import { PokeArrow, HeroImg } from '../../assets'
+import { ArrowBackRounded, ArrowForwardRounded, ChevronRightRounded, CloseRounded } from '@mui/icons-material';
 import { Chip } from '@mui/material';
 
 
@@ -24,6 +24,9 @@ const Modal = ({ onClose }) => {
   //Multi-select input
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [name, setName] = useState('');
+  const [errorName, setErrorName] = useState('');
+  const [errorServices, setErrorServices] = useState('');
 
   const handleDelete = (option) => {
     setSelectedOptions(selectedOptions.filter(item => item !== option));
@@ -37,12 +40,25 @@ const Modal = ({ onClose }) => {
     if (!selectedOptions.includes(option)) {
       setSelectedOptions([...selectedOptions, option]);
       setInputValue('');
+      setErrorServices('');
     }
   };
   ///////////////////
   const [currentSection, setCurrentSection] = useState(1);
 
   const handleProceed = () => {
+    if (currentSection === 1 && !name.trim()) {
+      setErrorName('Please enter your name');
+      return;
+    }
+    setErrorName('');
+
+    if (currentSection === 2 && selectedOptions.length === 0) {
+      setErrorServices('Please select at least one option');
+      return;
+    }
+    setErrorServices('');
+
     if (currentSection < 3) {
       setCurrentSection(currentSection + 1);
     } else {
@@ -64,26 +80,33 @@ const Modal = ({ onClose }) => {
       <div className="modal-content">
         <div className="modal__content-container">
           <div className="talk__header">
-            <img src={Anettcom} alt="" />
+            <h2 style={{display: 'flex', gap: '0.5rem'}}>
+              {currentSection > 1 && (
+                <div className="talk__header-back" onClick={handleBack}>
+                  <ArrowBackRounded />
+                </div>
+              )}Talk to us
+              </h2>
             <div className="talk__header-close" onClick={onClose}>
               <p>Close</p>
               <CloseRounded />
             </div>
           </div>
           <div className="talk__body">
-            {currentSection > 1 && (
-              <div className="talk__header-close talk__header-back" onClick={handleBack}>
-                <ChevronLeftRounded />
-                <p>Back</p>
-              </div>
-            )}
             {currentSection === 1 && (
               <>
                 <p>Hi,</p>
-                <h2>Talk to us</h2>
+                {/* <h2>Talk to us</h2> */}
                 <form>
                   <div className="inputs">
-                    <input type="text" placeholder="Tell us your name" />
+                    <input 
+                      type="text" 
+                      placeholder="Tell us your name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                    {errorName && <p  style={{color: 'red', fontSize: '12px', marginTop: '0'}} className="error">{errorName}</p>}
                     <input
                       type="text"
                       placeholder="Your company/brand name (Optional)"
@@ -100,90 +123,65 @@ const Modal = ({ onClose }) => {
                 <div>
                   <>
                   {options.map((option, index) => (
-                    <Chip
+                    <Chip className='Chip'
                       key={index}
                       label={option}
                       clickable
-                      color={selectedOptions.includes(option) ? "primary" : "default"}
+                      outline
+                      selected
+                      // color={selectedOptions.includes(option) ? "primary" : "default"}
                       onClick={() => handleAddOption(option)}
                       onDelete={selectedOptions.includes(option) ? () => handleDelete(option) : undefined}
-                      deleteIcon={selectedOptions.includes(option) ? <CloseRounded /> : <></>}
-                      style={{ margin: '4px', color: 'white', border: '2px solid gray', fontFamily: 'var(--font-2)' }}
-                      className={selectedOptions.includes(option) ? 'selected-chip' : ''}
+                      deleteIcon={selectedOptions.includes(option) ? <CloseRounded style={{color: 'white'}} /> : <></>}
+                      style={{ 
+                        margin: '4px', 
+                        color: selectedOptions.includes(option) ? 'white' : 'var(--black-400)', 
+                        border: selectedOptions.includes(option) ? '1.5px solid white' :  '1.5px solid var(--black-400)', 
+                        fontFamily: 'var(--font-2)', 
+                        background: selectedOptions.includes(option) ? 'linear-gradient(90deg, rgba(92, 157, 255, 1) 0%, rgba(19, 113, 255, 1) 100%)' : 'white' 
+                      }}
                     />
                   ))}
                   </>
+                  {errorServices && <p style={{color: 'red', fontSize: '12px'}} className="error">{errorServices}</p>}
                   <div className='multiselect'>
                     <textarea 
                       name="" 
-                      id="" 
-                      // cols="10" 
+                      id=""  
                       rows="3"
                       value={selectedOptions.join(', ')}
                       onChange={handleChange}
                     ></textarea>
-                    <p onClick={() => setSelectedOptions([])}>Clear field</p>
-                    {/* <CloseRounded/> */}
+                    <span onClick={() => setSelectedOptions([])}>Clear field</span>
                   </div>
-                  
-                  {/* <TextField
-                    label="Describe your needs here."
-                    variant="outlined"
-                    // fullWidth
-                    value={selectedOptions.join(', ')}
-                    onChange={handleChange}
-                    InputProps={{
-                      endAdornment: (
-                        <IconButton onClick={() => setSelectedOptions([])}>
-                          <CloseRounded />
-                        </IconButton>
-                      ),
-                      style: {
-                        '&:hover': {
-                          border: 'none',
-                          outline: 'none', 
-                          margin: '1rem',
-                        },
-                      },
-                    }}
-                    InputLabelProps={{
-                      style: {
-                        fontFamily: 'var(--font-2)', 
-                        fontSize: '12px',
-                        color: 'gray',
-                        paddingLeft: '1rem',
-                      },
-                    }}
-                  /> */}
                 </div>
               </>
             )}
             {currentSection === 3 && (
-              <>
-                <h6>We have recieved your enquiry</h6>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: '2rem 0'}}>
+                <h6 style={{ color: 'var(--black-400)'}}>We have recieved your enquiry</h6>
                 <h2>Thank you!</h2>
-                <h6>We will reach you as soon as we can.</h6>
-              </>
+                {/* <h6>We will reach you as soon as we can.</h6> */}
+              </div>
             )}
             {currentSection < 3 && (
-              <h6>CLICK THE BUTTON BELOW OR PRESS ENTER</h6>
+              <h6 style={{color: 'var(--black-300)', fontWeight: '500'}}>CLICK THE BUTTON BELOW OR PRESS ENTER</h6>
             )}
             
-            <button className="gradient__bg form__btn" onClick={handleProceed}>
-              {currentSection === 1 ? (
-                <>
-                  PROCEED
-                  <ChevronRightRounded />
-                </>
-              ) : currentSection === 2 ? (
-                <>
-                  NEXT
-                  <ChevronRightRounded />
-                </>
-              ) : (
-                <>BACK TO HOMEPAGE <ArrowForwardRounded/></>
-              )}
-            </button>
+            
+            {currentSection === 1 ? (
+              <button className="gradient__bg form__btn" onClick={handleProceed}>
+                PROCEED
+                <ChevronRightRounded />
+              </button>
+            ) : currentSection === 2 ? (
+              <button className="gradient__bg form__btn" onClick={handleProceed}>
+                NEXT
+                <ChevronRightRounded />
+              </button>
+            ) : (
+              <div onClick={handleProceed} className='gradient__text cta__btn' style={{alignSelf: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '1rem', cursor: 'pointer'}}>BACK TO HOMEPAGE <ArrowForwardRounded/></div>
+            )}
           </div>
         </div>
       </div>

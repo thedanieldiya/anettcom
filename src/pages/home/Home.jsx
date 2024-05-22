@@ -1,6 +1,6 @@
 import React from 'react'
 import './home.css'
-import { Hero, Clients, Services, Industries, Testimonial, CTA, Footer } from '../../containers'
+import { Hero, Clients, Services, Industries, Testimonial, CTA } from '../../containers'
 
 const Home = () => {
   return (
@@ -11,7 +11,6 @@ const Home = () => {
       <Industries />
       <Testimonial />
       <CTA />
-      <Footer />
     </div>
   )
 }
