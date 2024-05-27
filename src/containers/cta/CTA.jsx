@@ -45,7 +45,7 @@ const CTA = () => {
               {showModal && <Modal onClose={handleCloseModal} />}
             </div>
             <Cta action='Become an affiliate' target="_blank" route='https://forms.gle/k7Wdm33cD471VuJu6'/>
-            <Cta action='Contact us' route='contactus'/>
+            <Cta action='Contact us' route='/contactus'/>
           </div>
         </div>
       </div>
