@@ -41,7 +41,7 @@
   width: 25rem;
 }
 
-button {
+.footer__contact-us__newsletter button {
   height: auto;
   padding: 1rem 2rem;
   outline: none;
@@ -51,6 +51,10 @@ button {
   font-weight: 600;
   font-family: var(--font-2);
   font-size: 16px;
+}
+
+.footer__contact-us__newsletter button:hover {
+  cursor: pointer;
 }
 
 .footer__socials {
@@ -114,6 +118,11 @@ button {
   display: none;
 }
 
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
 @media screen and (max-width: 850px) {
   .footer {
     padding-top: 4rem;
@@ -136,7 +145,7 @@ button {
     width: 60%;
   }
 
-  button {
+  .footer__contact-us__newsletter button {
     padding: auto;
     color: white;
     font-weight: 600;
@@ -147,6 +156,8 @@ button {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
+
+  
 
   h6 {
     margin: 0;

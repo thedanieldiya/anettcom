@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowBackRounded, ArrowForwardRounded, ChevronRightRounded, CloseRounded } from '@mui/icons-material';
 import { Chip } from '@mui/material';
 import './modal.css'
+import firebase from 'firebase/compat/app';
+import { db } from '../../firebase';
 
 const options = ["Web Design & Development", "Mobile App", "Consulting", "Branding", "Training", "Software Development", "UI/UX", "Manage IT Services", "Others"];
 
@@ -10,8 +12,21 @@ const Modal = ({ onClose }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [name, setName] = useState('');
+  const [companyName, setCompanyName] = useState('');
   const [errorName, setErrorName] = useState('');
   const [errorServices, setErrorServices] = useState('');
+  const [talkToUs, setTalkToUs] = useState([]);
+
+  useEffect(() => {
+    db.collection('talkToUs').onSnapshot((snapshot) => 
+      setTalkToUs(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    )
+  }, []);
 
   const handleDelete = (option) => {
     setSelectedOptions(selectedOptions.filter(item => item !== option));
@@ -31,7 +46,7 @@ const Modal = ({ onClose }) => {
 
   const [currentSection, setCurrentSection] = useState(1);
 
-  const handleProceed = () => {
+  const handleProceed = (e) => {
     if (currentSection === 1 && !name.trim()) {
       setErrorName('Please enter your name');
       return;
@@ -48,6 +63,15 @@ const Modal = ({ onClose }) => {
       setCurrentSection(currentSection + 1);
     } else {
       // Handle form submission
+      e.preventDefault();
+
+      db.collection('talkToUs').add({
+        name: name,
+        company: companyName,
+        services: selectedOptions.join(', '),
+
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      })
       onClose();
     }
   };
@@ -93,6 +117,8 @@ const Modal = ({ onClose }) => {
                     <input
                       type="text"
                       placeholder="Your company/brand name (Optional)"
+                      value={companyName}
+                      onChange={e => setCompanyName(e.target.value)}
                     />
                   </div>
                 </form>
@@ -156,7 +182,7 @@ const Modal = ({ onClose }) => {
                 <ChevronRightRounded />
               </button>
             ) : (
-              <div onClick={handleProceed} className='gradient__text cta__btn' style={{alignSelf: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '1rem', cursor: 'pointer'}}>BACK TO HOMEPAGE <ArrowForwardRounded/></div>
+              <div onClick={handleProceed} className='gradient__text cta__btn final__home' >BACK TO HOMEPAGE <ArrowForwardRounded/></div>
             )}
           </div>
         </div>
