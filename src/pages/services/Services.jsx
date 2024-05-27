@@ -42,9 +42,9 @@ const Services = () => {
             }}
           />
           <div className="services__hero-img">
-            <img src={Jet} alt="" style={{width: '120px', objectFit: 'contain'}}/>
-            <img src={CoinCog} alt="" style={{width: '50px', objectFit: 'contain'}}/>
-            <img src={ServiceHero} alt="" style={{width: '40%', objectFit: 'contain'}}/>
+            <img src={Jet} alt="" style={{width: '120px', objectFit: 'contain'}} className='services__hero-icons'/>
+            <img src={CoinCog} alt="" style={{width: '50px', objectFit: 'contain'}} className='services__hero-icons'/>
+            <img src={ServiceHero} alt="" className='human'/>
           </div>
           
         </div>

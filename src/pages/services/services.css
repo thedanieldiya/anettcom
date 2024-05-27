@@ -4,6 +4,7 @@
 
 .services__hero h2 {
   max-width: 53%;
+  font-size: 2.5rem;
 }
 
 .services__hero-imgCon{
@@ -47,7 +48,7 @@
   border-radius: 2rem;
   padding: 2rem;
   box-shadow: 1px 9px 20px 0 rgba(81, 81, 81, 0.1);
-  height: 45vh;
+  /* height: 12rem; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -73,4 +74,74 @@
 .serviceCard img:hover{
   transform: rotate(-15deg);
   cursor: pointer;
+}
+
+.human {
+  width: 40%;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 850px)  {
+  .sections {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services__hero h2 {
+    max-width: 100%;
+    font-size: 1.75rem;
+  }
+
+  .services__hero-icons{
+    display: none;
+  }
+
+  .services__hero-img {
+    justify-content: center;
+  }
+
+  .section img {
+    height: 2rem;
+    object-fit: contain;
+  }
+  
+  .section h3 {
+    font-size: 1.375rem;
+  }
+   
+  .human {
+    width: 55%;
+  }
+
+  .section {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .serviceCard {
+    padding: 1.5rem;
+  }
+
+  .serviceCard h5{
+    margin: 1.5rem 0;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .human {
+    width: 70%;
+  }
+
+  .section {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .serviceCard {
+    padding: 1rem;
+  }
+
+  .serviceCard h5{
+    margin: 1rem 0;
+    font-size: 1rem;
+  }
 }

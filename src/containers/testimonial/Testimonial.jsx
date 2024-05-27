@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './testimonial.css'
 import { Arrow, AyoMartin } from '../../assets'
+import Modal from '../../components/modal/Modal'
+
+const Started = ({onClick}) => {
+  return (
+    <div className="testimonial__text-cta cta__btn" onClick={onClick}>
+      <p className=' gradient__text'>GET STARTED HERE </p>
+      <img src={Arrow} alt="" />
+    </div>
+  )
+}
 
 const Testimonial = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+  
   return (
     <div className='testimonial'>
       <div className="testimonial__text">
         <p className="testimonial__text-quotes gradient__text">""</p>
         <h4>Our vision is to be your technology solutions provider of choice.</h4>
-        <div className="testimonial__text-cta cta__btn">
-          <p className=' gradient__text'>GET STARTED HERE </p>
-          <img src={Arrow} alt="" />
+        <div className="">
+          <Started onClick={handleButtonClick}/>
+          {showModal && <Modal onClose={handleCloseModal} />}
         </div>
       </div>
       <div className="testimonial__card">

@@ -8,11 +8,11 @@ const Dev = () => {
     <> 
       <ServiceTag title='WEB DESIGN & DEVELOPMENT' subtitle='With expertise in cutting-edge technologies, we deliver robust web development solutions that cater to diverse business needs.' cta='Hire us' route='/services/web_development'/>
       <hr></hr>
-      <ServiceTag title='UI/UX' subtitle='Our skilled designers create visually appealing and intuitive user interfaces, focusing on enhancing user experiences.' cta='Hire us' />
+      <ServiceTag title='UI/UX' subtitle='Our skilled designers create visually appealing and intuitive user interfaces, focusing on enhancing user experiences.' cta='Hire us'  route='/services/uiux'/>
       <hr></hr>
-      <ServiceTag title='MOBILE APPLICATION' subtitle='Tap into our comprehensive mobile application development services, crafting innovative and user-friendly mobile applications.' cta='Build App' />
+      <ServiceTag title='MOBILE APPLICATION' subtitle='Tap into our comprehensive mobile application development services, crafting innovative and user-friendly mobile applications.' cta='Build App'  route='/services/mobile_app'/>
       <hr></hr>
-      <ServiceTag title='BRANDING' subtitle='We connect you to your customers with design experiences that drive growth and increases revenue.' cta='Hire us' />
+      <ServiceTag title='BRANDING' subtitle='We connect you to your customers with design experiences that drive growth and increases revenue.' cta='Hire us'  route='/services/branding'/>
       <hr></hr>
     </>
   )
@@ -21,13 +21,13 @@ const Dev = () => {
 const Software = () => {
   return (
     <>
-      <ServiceTag title='SOFTWARE DEVELOPMENT' subtitle='We provide services on software customization, integration of modules and more to help stay ahead of competitors.' cta='Hire us' />
+      <ServiceTag title='SOFTWARE DEVELOPMENT' subtitle='We provide services on software customization, integration of modules and more to help stay ahead of competitors.' cta='Hire us' route='/services/software_development'/>
       <hr></hr>
-      <ServiceTag title='SCHOOL MANAGEMENT' subtitle='Our leading school management solutions are tailored to easily manage class schedules, and handle grading all in one place.' cta='Book a Demo' route='ednify' />
+      <ServiceTag title='SCHOOL MANAGEMENT' subtitle='Our leading school management solutions are tailored to easily manage class schedules, and handle grading all in one place.' cta='Book a Demo' route='/services/ednify' />
       <hr></hr>
-      <ServiceTag title='PAVICOOP' subtitle='A fully integrated cloud cooperative management system that delivers the conventional cloud based banking solutions.' cta='Book a Demo' />
+      <ServiceTag title='PAVICOOP' subtitle='A fully integrated cloud cooperative management system that delivers the conventional cloud based banking solutions.' cta='Book a Demo' route='/services/pavicoop' />
       <hr></hr>
-      <ServiceTag title='LETPLUS' subtitle='Our leading school management solutions are tailored to easily manage class schedules, and handle grading all in one place..' cta='Book a Demo' />
+      <ServiceTag title='LETPLUS' subtitle='Our leading school management solutions are tailored to easily manage class schedules, and handle grading all in one place..' cta='Book a Demo' route='/services/letplus' />
       <hr></hr>
     </>
   )
@@ -36,9 +36,9 @@ const Software = () => {
 const Training = () => {
   return (
     <>
-      <ServiceTag title='CORPORATE TRAINING' subtitle='Empowering your team with the technical skills to drive business success.' cta='Get Started' />
+      <ServiceTag title='CORPORATE TRAINING' subtitle='Empowering your team with the technical skills to drive business success.' cta='Get Started' route='/services/corporate_training' />
       <hr></hr>
-      <ServiceTag title='WEB DESIGN & DEVELOPMENT' subtitle='Learning management systems, online learning marketplaces, corporate learning portals, virtual classrooms.' cta='Register now' />
+      <ServiceTag title='WEB DESIGN & DEVELOPMENT' subtitle='Learning management systems, online learning marketplaces, corporate learning portals, virtual classrooms.' cta='Register now' route='/services/web_training' />
       <hr></hr>
     </>
   )
