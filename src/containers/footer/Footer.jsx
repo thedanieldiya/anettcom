@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './footer.css';
 import { Anettcom } from '../../assets';
-import { FacebookRounded, Instagram, LinkedIn, X } from '@mui/icons-material';
+import { FacebookRounded, Instagram, LinkedIn, X, CloseRounded } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { db } from '../../firebase';
 import firebase from 'firebase/compat/app';
@@ -11,6 +11,7 @@ const Footer = () => {
   const [newsletter, setNewsletter] = useState([]);
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   useEffect(() => {
     db.collection('newsletter').onSnapshot((snapshot) => 
@@ -30,9 +31,13 @@ const Footer = () => {
       db.collection('newsletter').add({ 
         email: input,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      }).then(() => {
+        setInput('');
+        setErrorMessage('');
+        setIsPopupVisible(true);
+      }).catch((error) => {
+        console.error("Error adding document: ", error);
       });
-      setInput('');
-      setErrorMessage('');
     } else {
       setErrorMessage('Please enter a valid email address.');
     }
@@ -53,6 +58,10 @@ const Footer = () => {
       setIsButtonDisabled(true);
       setErrorMessage('Please enter a valid email address.');
     }
+  };
+
+  const closePopup = () => {
+    setIsPopupVisible(false);
   };
 
   return (
@@ -79,7 +88,6 @@ const Footer = () => {
               type="submit" 
               className='gradient__bg' 
               disabled={isButtonDisabled}
-              // style={{ backgroundColor: isButtonDisabled ? 'grey' : 'initial' }}
             >
               Subscribe Now
             </button>
@@ -110,6 +118,18 @@ const Footer = () => {
           <p>PRIVACY POLICY</p>
         </div>
       </div>
+      {isPopupVisible && (
+        <div className='modal' style={{padding: '1rem'}}>
+          <div className='pop-up modal-content'>
+            <h4>Thank you for joining our newsletter</h4>
+            {/* <button onClick={closePopup} className='talk__header-close'>Close</button> */}
+            <div className="talk__header-close" onClick={closePopup}>
+              <p>Close</p>
+              <CloseRounded />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
